@@ -71,11 +71,7 @@ impl zed::Extension for TsGoExtension {
         Ok(zed::Command {
             command: zed::node_binary_path()?,
             args: vec![
-                std::env::current_dir()
-                    .map_err(|e| e.to_string())?
-                    .join(command)
-                    .to_string_lossy()
-                    .into_owned(),
+                command,
                 "--lsp".into(),
                 "--stdio".into(),
             ],
